@@ -1,0 +1,45 @@
+{% extends 'xbox/base.html' %}
+{% block content %}
+{% for p in post %}
+<div style="width: 765.059px; height: 602px;position:relative; display: flex; flex-flow:column wrap; margin-top:55px;">
+    <div style=" width: 764.235px; height: 602px; position: absolute; left: 192.824px; top: 969px; background: rgb(255, 255, 255); opacity: 0.5; border-radius: 15px; filter: drop-shadow(rgba(0, 0, 0, 0.25) 1px 1px 5px) drop-shadow(rgba(0, 0, 0, 0.25) -1px -1px 5px);"></div>
+    <div style="width: 765.059px; height: 450.471px; position: absolute; left: 192px; top: 1065.35px; background: rgb(217, 217, 217);"></div>
+    <div style="width: 217px; height: 18.1176px;">
+        <div style="position: absolute; left: 335.647px; top: 985px; text-align: center; vertical-align: top; display: flex; flex-direction: column; justify-content: flex-start;">
+            <p><span
+                    style="font-size: 16px; text-decoration: none; font-weight: 400; font-family: &quot;open sans&quot;; white-space: break-spaces; color: rgb(125, 127, 125); text-transform: none;">{{p.time_create}}</span>
+            </p></div>
+        <div style=" position: absolute; left: 250.647px; top: 985px; width: 73.2941px; text-align: center; vertical-align: top; display: flex; flex-direction: column; justify-content: flex-start;">
+            <p><span
+                    style="font-size: 16px; text-decoration: none; font-weight: 400; font-family: &quot;open sans&quot;; white-space: break-spaces; color: rgb(0, 0, 0); text-transform: none;">{{p.author}}</span>
+            </p></div>
+        <div style=" position: absolute; left: 209.647px; top: 985px; width: 28.8235px; text-align: center; vertical-align: top; display: flex; flex-direction: column; justify-content: flex-start;">
+            <p><span
+                    style="font-size: 16px; text-decoration: none; font-weight: 400; font-family: &quot;open sans&quot;; white-space: break-spaces; color: rgb(125, 127, 125); text-transform: none;">тег</span>
+            </p></div>
+    </div>
+    <div style=" width: 682.235px; height: 16.4706px;">
+        <div style="position: absolute; left: 247.647px; top: 1534px; width: 9.88235px; text-align: center; vertical-align: top; display: flex; flex-direction: column; justify-content: flex-start;">
+            <p><span
+                    style="font-size: 16px; text-decoration: none; font-weight: 400; font-family: &quot;open sans&quot;; white-space: break-spaces; color: rgb(125, 127, 125); text-transform: none;">0</span>
+            </p></div>
+        <div style="position: absolute; left: 920px; top: 1534px; width: 9.88235px; text-align: center; vertical-align: top; display: flex; flex-direction: column; justify-content: flex-start;">
+            <p><span
+                    style="font-size: 16px; text-decoration: none; font-weight: 400; font-family: &quot;open sans&quot;; white-space: break-spaces; color: rgb(125, 127, 125); text-transform: none;">0</span>
+            </p></div>
+        <div style="position: absolute; left: 341.176px; top: 1534px; width: 9.88235px; text-align: center; vertical-align: top; display: flex; flex-direction: column; justify-content: flex-start;">
+            <p><span
+                    style="font-size: 16px; text-decoration: none; font-weight: 400; font-family: &quot;open sans&quot;; white-space: break-spaces; color: rgb(125, 127, 125); text-transform: none;">0</span>
+            </p></div>
+        <div style="position: absolute; left: 294.176px; top: 1534px; width: 9.88235px; text-align: center; vertical-align: top; display: flex; flex-direction: column; justify-content: flex-start;">
+            <p><span
+                    style="font-size: 16px; text-decoration: none; font-weight: 400; font-family: &quot;open sans&quot;; white-space: break-spaces; color: rgb(125, 127, 125); text-transform: none;">0</span>
+            </p></div>
+    </div>
+    <div style=" position: absolute; left: 209.647px; top: 1019px; text-align: left; vertical-align: top; display: flex; flex-direction: column; justify-content: flex-start;">
+        <p><span
+                style="font-size: 22px; text-decoration: none; font-weight: 700; font-family: &quot;open sans&quot;; white-space: break-spaces; color: rgb(0, 0, 0); text-transform: none;">{{p.title|truncatechars:51}}</span>
+        </p></div>
+</div>
+{% endfor %}
+{% endblock %}

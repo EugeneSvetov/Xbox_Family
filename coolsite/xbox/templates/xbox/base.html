@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" href="{% static 'xbox/css/styles.css' %}" rel="stylesheet"/>
+    <title>{{page_title}}</title>
+</head>
+<body>
+<div class="header">
+    <a>Xbox Family</a>
+    <a>Новости</a>
+    <a>Скидки</a>
+</div>
+{% if posts %}
+<div class="main_content">
+    {% for p in posts %}
+    {% if forloop.counter <= 1 %}
+    <div class="big_news_block">
+        {% if p.cover %}
+        <div class="photo" style="background: #000000;">
+            <div class="tag_background">
+                <div class="tag">
+                    <a>{{p.themes}}</a>
+                </div>
+                {% for p in posts %}
+                {% if forloop.counter <= 1 %}
+                <div class="text">
+                    <a class="heading_text">{{p.title|truncatechars:40}}</a>
+                    <a class="subtitle">{{p.content|truncatechars:70}}</a>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+            <div class='image'><img src="{{p.cover.url}}"></div>
+            <div class="arrow"><a><img
+                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMjEiIHZpZXdCb3g9IjAgMCAxNCAyMSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggaWQ9ImFycm93IiBkPSJNMi4wMDAwMiAxLjUwODc5TDEyLjE1OTggMTAuMTc1OEwyLjAwMDAyIDE4Ljg0MjgiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo="
+                    width="13" height="20"></a></div>
+        </div>
+        {% else %}
+        <div class="photo" style="background: #000000;">
+            <div class="tag_background">
+                <div class="tag">
+                    <a>тэг</a>
+                </div>
+                {% for p in posts %}
+                {% if forloop.counter <= 1 %}
+                <div class="text">
+                    <a class="heading_text">{{p.title|truncatechars:50}}</a>
+                    <a class="subtitle">{{p.content|truncatechars:70}}</a>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+            <div class="arrow"><a><img
+                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMjEiIHZpZXdCb3g9IjAgMCAxNCAyMSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggaWQ9ImFycm93IiBkPSJNMi4wMDAwMiAxLjUwODc5TDEyLjE1OTggMTAuMTc1OEwyLjAwMDAyIDE4Ljg0MjgiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo="
+                    width="13" height="20"></a></div>
+        </div>
+        {% endif %}
+    </div>
+    {% endif %}
+    {% endfor %}
+    <div class="news_tape">
+        {% for p in posts %}
+        {% if forloop.counter <= 5 %}
+        <div class="block">
+            <div class="photo"></div>
+            <div class='image'><img src="{{p.cover.url}}"></div>
+            <a class="heading_text">{{p.content|truncatechars:55}}</a>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <div style="margin-top:77px;display:flex; flex-direction:row;  top: 50%;
+    left: 50%;justify-content: center;">
+        <div style="display:flex; flex-direction:column;">
+            <div class="posts">
+                {% for p in posts %}
+                <div class="post">
+                    <div class="head_data" style="display:flex; flex-direction:column;">
+                        <a class="heading_text">{{p.title|truncatechars:60}}</a>
+                        <div class="ugu" style="display:flex; flex-direction:row;">
+                            <a class="post_tag">{{p.themes}}</a>
+                            <a class="author">{{p.author|truncatechars:25}}</a>
+                            <a class="date_time">{{p.time_create|date:"d.m.Y H:i"}}</a>
+                        </div>
+                    </div>
+                    <div class="foot_data">
+                        <a class="likes">0</a>
+                        <a class="comments">0</a>
+                        <a class="shares">0</a>
+                        <a class="views">0</a>
+                    </div>
+                    <div class="background">
+                        <div class="photo">
+                            <div class='image'><img src="{{p.cover.url}}"></div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="side_tape">
+            <div class="latest_news">
+                <div class="background">
+                    <a class="heading_text">Свежие новости</a>
+                    {% for p in posts %}
+                    {% if forloop.counter <= 3 %}
+                    <div class="group">
+                        <a>{{p.title|truncatechars:50}}</a>
+                        <div class="line"></div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="recommends">
+                <div class="background">
+                    <a class="heading_text">Рекомендуем</a>
+                    {% for p in posts %}
+                    {% if forloop.counter <= 3 %}
+                    <div class="group">
+                        <a>{{p.title|truncatechars:50}}</a>
+                        <div class="line"></div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+<footer>
+    <a>Xbox Family 2022</a>
+    <a>Использование любых материалов без согласования с администрацией запрещено</a>
+    <a>О нас</a>
+    <a>Контакты</a>
+</footer>
+</body>
+</html>
